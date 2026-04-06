@@ -16,6 +16,24 @@ class TreeNode {
             left = nullptr;
             right = nullptr;
         }
+
+        bool search(T element) {    // Searching tree for element
+            TreeNode<T>* current = this;    // Start at root
+
+            while (current != nullptr) {    // Repeat until hits end of the tree
+                if (current -> element == element) {
+                    return true;
+
+                } else if (element < current -> element) {  // If element is less, go left
+                    current = current->left;
+
+                } else {    // If element is greater, go right
+                    current = current->right;
+
+                }
+            }
+            return false;   // If nothing is found, return false
+        }
 };
 
 #endif

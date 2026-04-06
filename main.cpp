@@ -17,5 +17,14 @@ int main() {
     // Printing root right child element
     cout << root -> right -> element << endl;
 
+    // Testing search algorithms
+    if (root->search(100)) {
+        cout << "First case true" << endl
+        ;
+    }
+    if (root->search(12)) {
+        cout << "Second case true" << endl;
+    }
+
     return 0;
 }

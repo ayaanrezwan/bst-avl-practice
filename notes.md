@@ -9,7 +9,9 @@
 - TreeNode is the class for just one node of the BST, BST is a class of its own
 - VIRTUAL keyword -> allows for polymorphism, essentially allowing for multiple classes to use the same function names while ensuring the correct function is called at runtime (ie. insert BST vs insert AVL)
 - Functions are repeated in BST private and public as a wrapper. The public is a clean, no parameter function, whereas the private function actually does the dirty work with a parameter and recursion.
+- Traversals are essentially just 3 line recursive functions
 
 ## Notes to Self
 - Make sure to be careful when you declare functions within scopes, they might be needed in an outer scope.
 - Use helper functions as much as possible
+- Recursion is not that bad, just draw trees to visualize

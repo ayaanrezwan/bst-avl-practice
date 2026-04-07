@@ -127,9 +127,9 @@ void BST<T>::inorder() const {
 template <typename T>
 void BST<T>::inorder(const TreeNode<T>* root) const {
     if (root == nullptr) return;    // If empty tree then return nothing
-    inorder(root->left);
-    cout << root->element << " ";
-    inorder(root->right);
+    inorder(root -> left);
+    cout << root -> element << " ";
+    inorder(root -> right);
 }
 
 // postorder traversal printing from root (automatically)
@@ -142,11 +142,25 @@ void BST<T>::postorder() const {
 template <typename T>
 void BST<T>::postorder(const TreeNode<T>* root) const {
     if (root == nullptr) return;    // If empty tree then return nothing
-    inorder(root -> left);
-    inorder(root -> right);
+    postorder(root -> left);
+    postorder(root -> right);
     cout << root -> element << " ";
 }
 
+// preorder traversal printing from root (automatically)
+template <typename T>
+void BST<T>::preorder() const {
+    preorder(root);
+}
+
+// preorder traversal printing from subtree (recursive & private)
+template <typename T>
+void BST<T>::preorder(const TreeNode<T>* root) const {
+    if (root == nullptr) return;    // If empty tree then return nothing
+    cout << root -> element << " ";
+    preorder(root -> left);
+    preorder(root -> right);
+}
 
 // Boolean removal function, gets rid of one element from the array
 template <typename T>

@@ -117,22 +117,35 @@ bool BST<T>::insert(const T& element) {
     return true;    // Increasing size and returning true to indicate successful insertion
 }
 
-// inorder traversal from root (automatically)
+// inorder traversal printing from root (automatically)
 template <typename T>
 void BST<T>::inorder() const {
     inorder(root);  // Calls the recursive helper that is wrapped
 }
 
-// inorder traversal from a subtree (recursive & private)
+// inorder traversal printing from a subtree (recursive & private)
 template <typename T>
-void BST<T>::inorder(const TreeNode<T>* tree) const {
+void BST<T>::inorder(const TreeNode<T>* root) const {
     if (root == nullptr) return;    // If empty tree then return nothing
     inorder(root->left);
     cout << root->element << " ";
     inorder(root->right);
 }
 
-// postorder traversal from root (automatically)
+// postorder traversal printing from root (automatically)
+template <typename T>
+void BST<T>::postorder() const {
+    postorder(root);
+}
+
+// postorder traversal printing from subtree (recursive & private)
+template <typename T>
+void BST<T>::postorder(const TreeNode<T>* root) const {
+    if (root == nullptr) return;    // If empty tree then return nothing
+    inorder(root -> left);
+    inorder(root -> right);
+    cout << root -> element << " ";
+}
 
 
 // Boolean removal function, gets rid of one element from the array

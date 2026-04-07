@@ -62,10 +62,12 @@ BST<T>::BST(const BST<T>& tree) {
 }
 
 // Destructor
+template <typename T>
+BST<T>::~BST() {
+    clear();    // Using implemented clear member function (which uses the private function)
+}
 
-
-
-
+// Boolean search for a given element in the BST
 template <typename T>
 bool BST<T>::search(const T& element) const{    // Searching tree for element
     TreeNode<T>* current = this;    // Start at root
@@ -83,4 +85,34 @@ bool BST<T>::search(const T& element) const{    // Searching tree for element
         }
     }
     return false;   // If nothing is found, return false
+}
+
+// Boolean insertion, puts an element into the BST and returns true if it works. False if it's a dupe
+template <typename T>
+bool BST<T>::insert(const T& element) {
+    if (root == nullptr) {   // If root is empty, start the tree
+        root = createNewNode(element);
+    } else {
+        // Helper pointers (only allocate if needed inside of logic statement)
+        TreeNode<T>* current = root;
+        TreeNode<T>* parent = nullptr;
+        while (current != nullptr) {
+            if (element < current->element) {
+                parent = current;
+                current = current -> left;
+            } else if (element > current->element) {
+                parent = current;
+                current = current->right;
+            } else {
+                return false;   // Duplicate detected
+            }
+        }
+        if (element < parent->element) {
+            parent->left = createNewNode(element);
+        } else {
+            parent->right = createNewNode(element);
+        }
+    }
+    size++;
+    return true;
 }

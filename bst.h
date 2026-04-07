@@ -162,6 +162,27 @@ void BST<T>::preorder(const TreeNode<T>* root) const {
     preorder(root -> right);
 }
 
+// Size return function
+template <typename T>
+int BST<T>::getSize() const {
+    return size;
+}
+
+// Full BST deletion function
+template <typename T>
+void BST<T>::clear() {
+
+}
+
+// Path return function to arrive at an element
+template <typename T>
+vector<TreeNode<T>*>* BST<T>::path(const T& element) const {
+    vector<TreeNode<T>*>* v = new vector<TreeNode<T>*>();
+    TreeNode<T>* current = root;
+    
+
+}
+
 // Boolean removal function, gets rid of one element from the array
 template <typename T>
 bool BST<T>::remove(const T& element) {

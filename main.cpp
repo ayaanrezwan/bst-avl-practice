@@ -5,6 +5,7 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+#include "avl.h"
 using namespace std;
 
 template <typename T>

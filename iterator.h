@@ -2,6 +2,8 @@
 #define ITERATOR_H
 
 #include "treenode.h"
+#include <vector>
+using namespace std;
 
 template <typename T>
 class Iterator: public std::iterator<std::forward_iterator_tag, T> {

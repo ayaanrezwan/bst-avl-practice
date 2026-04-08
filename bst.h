@@ -4,6 +4,7 @@
 #include "treenode.h"
 #include "iterator.h"
 #include <vector>
+#include <stdexcept>
 using namespace std;
 
 // Class implementation
@@ -89,8 +90,8 @@ BST<T>::~BST() {
 
 // Boolean search for a given element in the BST
 template <typename T>
-bool BST<T>::search(const T& element) const{    // Searching tree for element
-    TreeNode<T>* current = this;    // Start at root
+bool BST<T>::search(const T& element) const {    // Searching tree for element
+    TreeNode<T>* current = root;    // Start at root
 
     while (current != nullptr) {    // Repeat until hits end of the tree
         if (current -> element == element) {
@@ -105,6 +106,13 @@ bool BST<T>::search(const T& element) const{    // Searching tree for element
         }
     }
     return false;   // If nothing is found, return false
+}
+
+// Function to create new node with a given element
+template <typename T>
+TreeNode<T>* BST<T>::createNewNode(const T& e)
+{
+  return new TreeNode<T>(e);
 }
 
 // Boolean insertion, puts an element into the BST and returns true if it works. False if it's a dupe
@@ -191,7 +199,19 @@ int BST<T>::getSize() const {
 // Full BST deletion function
 template <typename T>
 void BST<T>::clear() {
+    clear(root);  // Calls the recursive helper that is wrapped
+    root = nullptr;   // Set root to null after clearing
+    size = 0;   // Set size to 0 after clearing
+}
 
+// Recursive BST deletion function (used for destructor)
+template <typename T>
+void BST<T>::clear(const TreeNode<T>* root) {
+    if (root != nullptr) {    // If empty tree then return nothing
+        clear(root -> left);
+        clear(root -> right);
+        delete root;   // Deletes the current node after deleting its children (postorder)
+    }
 }
 
 // Path return function to arrive at an element

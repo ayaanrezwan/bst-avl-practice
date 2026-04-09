@@ -325,6 +325,8 @@ bool AVLTree<T>::remove(const T& e)
   return true; // Element inserted
 }
 
+
+// ----- Potential test functions -----
 template <typename T>
 void AVLTree<T>::doubleRotate(TreeNode<T>* A, TreeNode<T>* parentOfA, bool leftHeavy)
 {

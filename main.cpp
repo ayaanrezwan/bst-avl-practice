@@ -102,8 +102,8 @@ int main() {
 
 
     // Create an AVL tree
-  int numbers[] = {25, 20, 5};
-  AVLTree<int> tree3(numbers, 3);
+  int numbers2[] = {25, 20, 5};
+  AVLTree<int> tree3(numbers2, 3);
 
   cout << "After inserting 25, 20, 5:" << endl;
   printTree<int>(tree3);
